@@ -8,6 +8,7 @@ import Select from '@mui/material/Select';
 import { sizeHeight } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import SearchResults from './search_results';
 
 export default function SelectVariants() {
 
@@ -797,6 +798,7 @@ export default function SelectVariants() {
         <br></br>
         <br></br>
         <br></br>
+        <SearchResults results_data = {submission_data}/>
         <br></br>
         <br></br>
         <br></br>
