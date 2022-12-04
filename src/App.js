@@ -9,6 +9,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SelectVariants from './components/query_form';
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
                   <header className="App-header">
                     <div style={{display: 'flex'}}>
                       <div className="Header-description">
-                        <h1>Dating App Data</h1>
+                        <h1>Dating App Data (Beta Version)</h1>
                         <h3>Discover your dating data</h3>
                         <div class="picture-row">
                           <img src={require('./images/all_3.png')}></img>
@@ -112,6 +113,7 @@ function App() {
                   </header>
                   
                 </div>
+                <SelectVariants />
               </div>
         </div>
         
