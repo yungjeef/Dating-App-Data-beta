@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import FormSelect from './components/query_form.js'
 //import ResponsiveAppBar from './components/top_nav_bar.js'
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -23,27 +22,12 @@ function App() {
 
     const navigate = useNavigate();
 
-    const particlesInit = useCallback(async (engine) => {
-      console.log(engine);
-        await loadFull(engine);
-    }, []);
-
-    const particlesLoaded = useCallback(async (container) => {
-        await console.log(container);
-    }, []);
-
     return (
       <React.Fragment>
         <div className='app'>
               <div id="welcome-page">
                 <div className="welcome-page" style={{ position: 'relative', overflow: "hidden" }}>
                   
-                  <Particles
-                    id="tsparticles"
-                    init={particlesInit}
-                    loaded={particlesLoaded}
-                    options={particlesConfig}
-                  />
                   <Navbar/>
                   <header className="App-header">
                     <div style={{display: 'flex'}}>
@@ -123,7 +107,6 @@ function App() {
                     </div>
                   </header>
                 </div>
-                <FormSelect/>
               </div>
         </div>
         
