@@ -42,18 +42,6 @@ function Navbar() {
             <Link to="/" className={classes.link}>
               Home
             </Link>
-            <Link to="/about" className={classes.link}>
-              About
-            </Link>
-            <Link to="/upload" className={classes.link}>
-              Upload and Discover
-            </Link>
-            <Link to="/explore" className={classes.link}>
-              Explore More
-            </Link>
-            <Link to="/get-data" className={classes.link}>
-              How to get dating data
-            </Link>
           </div>
       </Toolbar>
     </AppBar>
