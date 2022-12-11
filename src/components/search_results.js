@@ -17,12 +17,12 @@ export default class SearchResults extends React.Component {
             ResultsDisplay = <p></p>
         } else {
             for(const key in results_data) {
-                if(key == "dating_app" || key == "match_per_day" || key == "swipe_ratio" || key == "total_matches" || key == "metric" || key == "min_age" || key == "max_age" || key == "min_height" || key == "max_height") {
+                if(key === "dating_app" || key === "match_per_day" || key === "swipe_ratio" || key === "total_matches" || key === "metric" || key === "min_age" || key === "max_age" || key === "min_height" || key === "max_height") {
                     continue;
                 }
 
                 let message;
-                if(results_data[key] == "") {
+                if(results_data[key] === "") {
                     message = "Any " + key;
                 } else {
                     message = results_data[key];
@@ -41,30 +41,30 @@ export default class SearchResults extends React.Component {
             }
 
             let age_message = "";
-            if(results_data["max_age"] != 0 && results_data["min_age"] != 0) {
+            if(results_data["max_age"] !== 0 && results_data["min_age"] !== 0) {
                 age_message = 'Between ' + results_data["min_age"] + ' and ' + results_data["max_age"] + ' years old'
-            } else if(results_data["max_age"] != 0) {
+            } else if(results_data["max_age"] !== 0) {
                 age_message = 'At most ' + results_data["max_age"] + ' years old'
-            } else if(results_data["min_age"] != 0) {
+            } else if(results_data["min_age"] !== 0) {
                 age_message = 'At least ' + results_data["min_age"] + ' years old'
             }
 
             let height_message = "";
             let min_height;
             let max_height;
-            if(results_data["max_height"] != 0 && results_data["min_height"] != 0) {
+            if(results_data["max_height"] !== 0 && results_data["min_height"] !== 0) {
                 min_height = Math.floor(results_data["min_height"]/12) + "'" + results_data["min_height"]%12;
                 max_height = Math.floor(results_data["max_height"]/12) + "'" + results_data["max_height"]%12;
                 height_message = 'Between ' + min_height + ' and ' + max_height
-            } else if(results_data["max_height"] != 0) {
+            } else if(results_data["max_height"] !== 0) {
                 max_height = Math.floor(results_data["max_height"]/12) + "'" + results_data["max_height"]%12;
                 height_message = 'At most ' + max_height
-            } else if(results_data["min_height"] != 0) {
+            } else if(results_data["min_height"] !== 0) {
                 min_height = Math.floor(results_data["min_height"]/12) + "'" + results_data["min_height"]%12;
                 height_message = 'At least ' + min_height
             }
 
-            if(age_message != "") {
+            if(age_message !== "") {
                 AttributeTags.push(
                     <Button 
                         variant="contained"
@@ -75,7 +75,7 @@ export default class SearchResults extends React.Component {
                     </Button>);
             }
             
-            if(height_message != "") {
+            if(height_message !== "") {
                 AttributeTags.push(
                     <Button 
                         variant="contained"
@@ -105,7 +105,7 @@ export default class SearchResults extends React.Component {
 
             let PercentileStatement;
             let percentile;
-            if(results_data.metric == 0) {
+            if(results_data.metric === 0) {
                 let length = group_matches.length;
                 let counter = 0;
                 for(var i=0; i < length; i++) {
@@ -120,7 +120,7 @@ export default class SearchResults extends React.Component {
                         With <font color="FF8000">{results_data.total_matches}</font> total matches, you are in the 
                         <font color="FF8000"> {percentile}% percentile</font> among the users.
                     </h2>
-            } else if(results_data.metric == 1) {
+            } else if(results_data.metric === 1) {
                 let length = group_ratios.length;
                 let counter = 0;
                 for(var i=0; i < length; i++) {
@@ -135,7 +135,7 @@ export default class SearchResults extends React.Component {
                         With <font color="FF8000">{results_data.swipe_ratio}</font> swipe ratio, you are in the 
                         <font color="FF8000"> {percentile}% percentile</font> among the users.
                     </h2>
-            } else if(results_data.metric == 2) {
+            } else if(results_data.metric === 2) {
                 let length = group_rate.length;
                 let counter = 0;
                 for(var i=0; i < length; i++) {
@@ -154,13 +154,14 @@ export default class SearchResults extends React.Component {
 
             let PercentileImage;
             if(percentile > 70) {
-                PercentileImage = <img src={require('../images/giga_chad.jpg')} width="400"></img>
+                PercentileImage = <img src={require('../images/giga_chad.jpg')} width="400" alt="High tier"></img>
             } else if(percentile <= 70 && percentile > 10) {
-                PercentileImage = <img src={require('../images/wojak.jpg')} width="400"></img>
+                PercentileImage = <img src={require('../images/wojak.jpg')} width="400" alt="Mid tier"></img>
             } else if(percentile <= 10) {
                 PercentileImage = <img 
                     src={require('../images/withered.jpg')}
                     width="400"
+                    alt="Low tier"
                     >
 
                 </img>

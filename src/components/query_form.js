@@ -229,7 +229,7 @@ export default function SelectVariants() {
     };
 
     let metric_input;
-    if(metric == 0) {
+    if(metric === 0) {
         metric_input = 
             <TextField
                 id="total-matches-input"
@@ -245,7 +245,7 @@ export default function SelectVariants() {
                 value={total_matches}
                 onChange={handleTotalMatches}
             />
-    } else if(metric == 1){
+    } else if(metric === 1){
         metric_input =
             <div>
                 <TextField
@@ -265,7 +265,7 @@ export default function SelectVariants() {
                 <p style={{fontSize: '14px'}}>The match-to-like ratio must be between 0 and 1</p>
             </div>    
         
-    } else if(metric == 2) {
+    } else if(metric === 2) {
         metric_input =
             <TextField
                 id="match-day-input"
@@ -289,16 +289,16 @@ export default function SelectVariants() {
         let actual_min_height = 0;
         let actual_max_height = 0;
 
-        if(min_feet != '') {
+        if(min_feet !== '') {
             actual_min_height = Number(min_feet) * 12;
-            if(min_inch != '') {
+            if(min_inch !== '') {
                 actual_min_height = actual_min_height + Number(min_inch);
             }
         }
 
-        if(max_feet != '') {
+        if(max_feet !== '') {
             actual_max_height = Number(max_feet) * 12;
-            if(max_inch != '') {
+            if(max_inch !== '') {
                 actual_max_height = actual_max_height + Number(max_inch);
             }
         }
@@ -312,7 +312,7 @@ export default function SelectVariants() {
         // Determine if min age is greater than max age
         let actual_min_age = 0;
         let actual_max_age = 0;
-        if(min_age != '' && max_age != '') {
+        if(min_age !== '' && max_age !== '') {
             if(Number(min_age) > Number(max_age)) {
                 actual_max_age = Number(min_age);
                 actual_min_age = Number(max_age);
@@ -320,9 +320,9 @@ export default function SelectVariants() {
                 actual_min_age = Number(min_age);
                 actual_max_age = Number(max_age);
             }
-        } else if(min_age != '') {
+        } else if(min_age !== '') {
             actual_min_age = Number(min_age);
-        } else if(max_age != '') {
+        } else if(max_age !== '') {
             actual_max_age = Number(max_age);
         }
 
@@ -360,13 +360,13 @@ export default function SelectVariants() {
     function handleSubmit() {
         const submission_form = generate_submission_form();
 
-        if(submission_form.dating_app == "") {
+        if(submission_form.dating_app === "") {
             alert("Dating app needs to be specified.")
-        } else if(submission_form.metric == 1 && submission_form.swipe_ratio == "") {
+        } else if(submission_form.metric === 1 && submission_form.swipe_ratio === "") {
             alert("Match Ratio metric must be specified.");
-        } else if(submission_form.metric == 2 && submission_form.match_per_day == "") {
+        } else if(submission_form.metric === 2 && submission_form.match_per_day === "") {
             alert("Match per day metric must be specified.");
-        } else if(submission_form.metric == 0 && submission_form.total_matches == "") {
+        } else if(submission_form.metric === 0 && submission_form.total_matches === "") {
             alert("Total matches metric must be specified.");
         } else {
             // Submit using Axios to backend

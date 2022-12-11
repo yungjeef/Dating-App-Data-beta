@@ -10,6 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SelectVariants from './components/query_form';
+import Navbar from "./components/top_nav_bar";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                     loaded={particlesLoaded}
                     options={particlesConfig}
                   />
+                  <Navbar/>
                   <header className="App-header">
                     <div style={{display: 'flex'}}>
                       <div className="Header-description">
@@ -88,13 +90,13 @@ function App() {
                     </div>
                     <div className='bottom-pic'>
                       <div className='bottom-pic-column'>
-                        <img src={require('./images/online_dating.png')} style={{width: '250px', height:'auto'}}></img>
+                        <img src={require('./images/online_dating.png')} style={{width: '250px', height:'auto'}} alt="online dating pic"></img>
                       </div>
                       <div className='bottom-pic-column'>
-                        <img src={require('./images/right-arrow-icon-114837-11.png')} style={{width: '250px', height:'auto'}}></img>
+                        <img src={require('./images/right-arrow-icon-114837-11.png')} style={{width: '250px', height:'auto'}} alt="arrow icon"></img>
                       </div>
                       <div className='bottom-pic-column'>
-                        <img src={require('./images/data.png')} style={{width: '250px', height:'auto'}}></img>
+                        <img src={require('./images/data.png')} style={{width: '250px', height:'auto'}} alt="statistics pic"></img>
                       </div>
                     </div>
                     <br></br>
